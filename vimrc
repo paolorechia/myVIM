@@ -15,8 +15,6 @@ Plugin 'scrooloose/nerdtree'
 
 Plugin 'scrooloose/nerdcommenter'
 
-Plugin 'Valloric/YouCompleteMe'
-
 Plugin 'tpope/vim-fugitive'
 
 Plugin 'easymotion/vim-easymotion'
