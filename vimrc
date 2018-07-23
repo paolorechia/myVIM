@@ -13,15 +13,13 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'scrooloose/nerdtree'
 
-Plugin 'scrooloose/nerdcommenter'
+" Plugin 'scrooloose/nerdcommenter'
 
-Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-fugitive'
 
-Plugin 'easymotion/vim-easymotion'
+" Plugin 'easymotion/vim-easymotion'
 
-Plugin 'ctrlpvim/ctrlp.vim'
-
-Plugin 'tpope/vim-surround'
+" Plugin 'tpope/vim-surround'
 
 Plugin 'pangloss/vim-javascript'
 
@@ -34,9 +32,9 @@ Plugin 'python-syntax'
 
 call vundle#end()
 filetype plugin indent on
-set tabstop=4
-set expandtab
-set shiftwidth=4
+set tabstop=2
+" set expandtab
+set shiftwidth=2
 syntax enable
 
 "set background=dark
