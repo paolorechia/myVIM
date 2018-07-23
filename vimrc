@@ -43,12 +43,17 @@ syntax enable
 
 inoremap <S-Tab> <C-V><Tab>
 let mapleader = ','
+let maplocalleader = '-'
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>q viw<esc>a"<esc>bi"<esc>
 nnoremap <leader>qs viw<esc>a'<esc>bi'<esc>
-nnoremap <leader>c A;<esc>
+nnoremap <leader>p A;<esc>
 nnoremap <leader>i >><esc>
+autocmd BufNewFile * :write
+autocmd BufWritePre *.java :normal gg=G 
+"autocmd BufRead *.java nnoremap <buffer> <LocalLeader>c 0i//<esc>
+autocmd FileType java nnoremap <buffer> <LocalLeader>c 0i//<esc>
 inoremap jk <esc>
 inoremap <esc> <nop>
 iabbrev c@ int main(int argc, char \* argv){<cr> <Tab>return 0; <cr>}
