@@ -16,6 +16,10 @@ Plugin 'scrooloose/nerdtree'
 
 Plugin 'fholgado/minibufexpl.vim'
 
+Plugin 'pangloss/vim-javascript'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'maxmellon/vim-jsx-pretty'
+
 
 " Track the engine.
 Plugin 'SirVer/ultisnips'

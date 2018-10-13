@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cp ~/.vimrc .
+cp ~/.vimrc vimrc
 cp ~/.vim/UltiSnips/*.snippets .
