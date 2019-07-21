@@ -20,6 +20,16 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'w0rp/ale'
 
+" vim-hug-neovim-rpc
+set pyxversion=3
+set encoding=utf-8
+
+" deoplete plugins
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'roxma/nvim-yarp'
+Plugin 'roxma/vim-hug-neovim-rpc'
+let g:deoplete#enable_at_startup = 1
+
 call vundle#end()
 
 let g:ale_linters = {
@@ -35,6 +45,8 @@ set shiftwidth=2
 set tw=79
 syntax enable
 
+" Deoplete auto-complete key mapping to tab
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <S-Tab> <C-V><Tab>
 let mapleader = ','
 let maplocalleader = 's'
