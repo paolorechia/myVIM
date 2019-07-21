@@ -46,6 +46,7 @@ call vundle#end()
 
 let g:ale_linters = {
 \   'javascript': ['eslint'],
+\   'python': ['pylint'],
 \}
 let g:ale_sign_error = '●' " Less aggressive than the default '>>'
 let g:ale_sign_warning = '.'
