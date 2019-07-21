@@ -18,13 +18,21 @@ Plugin 'fholgado/minibufexpl.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'maxmellon/vim-jsx-pretty'
+Plugin 'w0rp/ale'
 
 call vundle#end()
+
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
+let g:ale_sign_error = '●' " Less aggressive than the default '>>'
+let g:ale_sign_warning = '.'
 
 " Custom setup
 set expandtab
 set tabstop=2
 set shiftwidth=2
+set tw=79
 syntax enable
 
 inoremap <S-Tab> <C-V><Tab>
