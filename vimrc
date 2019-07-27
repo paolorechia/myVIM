@@ -50,6 +50,10 @@ let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'python': ['pylint'],
 \}
+let b:ale_fixers = { 
+\  'javascript': ['prettier', 'eslint']
+\}
+
 let g:ale_sign_error = '●' " Less aggressive than the default '>>'
 let g:ale_sign_warning = '.'
 
@@ -100,3 +104,8 @@ au BufNewFile,BufRead *.py set autoindent
 au BufNewFile,BufRead *.py set fileformat=unix
 
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+
+" Custom silent
+command! -nargs=1 Silent
+\ | execute ':silent !'.<q-args>
+\ | execute ':redraw!'
