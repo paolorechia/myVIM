@@ -23,6 +23,8 @@ Plugin 'tpope/vim-fugitive'
 " Powerline!
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
+" Auto quote matching 
+Plugin 'Raimondi/delimitMate'
 " Syntax highlighting, linting
 Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
