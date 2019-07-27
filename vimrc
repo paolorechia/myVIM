@@ -84,6 +84,10 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Buffer navigation
+nnoremap <C-h> :bp<cr>
+nnoremap <C-l> :bn<cr>
+
 
 " Python specific config "
 au BufNewFile,BufRead *.py set tabstop=4
