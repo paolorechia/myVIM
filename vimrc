@@ -34,6 +34,7 @@ Plugin 'w0rp/ale'
 " Snippets
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'mlaursen/vim-react-snippets'
 
 " Basic keybindings
 inoremap <c-a> <nop>
