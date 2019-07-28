@@ -31,6 +31,17 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'w0rp/ale'
 
+" Snippets
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+
+" Basic keybindings
+inoremap <c-a> <nop>
+nnoremap <c-a> <nop>
+let g:UltiSnipsExpandTrigger="<c-a>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
 " vim-hug-neovim-rpc
 set pyxversion=3
 set encoding=utf-8
@@ -83,12 +94,6 @@ autocmd FileType java nnoremap <buffer> <LocalLeader>c 0i//<esc>
 autocmd FileType c nnoremap <buffer> <LocalLeader>c 0i//<esc>
 autocmd FileType c nnoremap <buffer> <LocalLeader>u 0xx<esc>
 autocmd FileType c nnoremap <buffer> <LocalLeader>i 0iif( ){}<esc>
-
-"split navigations
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
 
 " Buffer navigation
 nnoremap <C-h> :bp<cr>
