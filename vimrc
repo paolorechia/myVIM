@@ -17,6 +17,9 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'kien/ctrlp.vim'
 
+" ControlP search only inside root dir
+let g:ctrlp_working_path_mode = 0
+
 " Git integration
 Plugin 'tpope/vim-fugitive'
 
