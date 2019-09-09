@@ -2,7 +2,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -77,6 +76,9 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 syntax enable
+
+
+inoremap jk <esc>
 
 " Deoplete auto-complete key mapping to tab
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
