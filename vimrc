@@ -24,7 +24,7 @@ Plugin 'tpope/vim-fugitive'
 
 " Easy commenting
 " Needs tweaking
-" Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-commentary'
 
 " Easy motion
 Plugin 'easymotion/vim-easymotion'
