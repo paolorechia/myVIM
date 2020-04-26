@@ -16,6 +16,9 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'kien/ctrlp.vim'
 
+Plugin 'arcticicestudio/nord-vim'
+
+
 " ControlP search only inside root dir
 let g:ctrlp_working_path_mode = 0
 
@@ -144,3 +147,6 @@ let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 command! -nargs=1 Silent
 \ | execute ':silent !'.<q-args>
 \ | execute ':redraw!'
+
+colorscheme nord
+
