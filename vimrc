@@ -32,8 +32,8 @@ Plugin 'tpope/vim-commentary'
 " Easy motion
 Plugin 'easymotion/vim-easymotion'
 
-" Powerline!
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+" Airline!
+Plugin 'vim-airline/vim-airline'
 
 " Auto quote matching 
 Plugin 'Raimondi/delimitMate'
@@ -150,3 +150,4 @@ command! -nargs=1 Silent
 
 colorscheme nord
 
+" Turn on line numbers
