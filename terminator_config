@@ -1,0 +1,36 @@
+[global_config]
+  always_on_top = True
+  borderless = True
+  title_transmit_bg_color = "#5c88cb"
+[keybindings]
+  go_left = <Alt>h
+  go_right = <Alt>l
+  layout_launcher = None
+  next_tab = <Alt>l
+  prev_tab = <Alt>h
+[layouts]
+  [[default]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = feb099af-724e-4628-80f6-5187ca630578
+      last_active_window = True
+      maximised = True
+      order = 0
+      parent = ""
+      position = 65:28
+      size = 1855, 1026
+      title = paolo@paolo-GL552VW: ~
+      type = Window
+    [[[terminal1]]]
+      order = 0
+      parent = child0
+      profile = default
+      type = Terminal
+      uuid = feb099af-724e-4628-80f6-5187ca630578
+[plugins]
+[profiles]
+  [[default]]
+    background_color = "#002b36"
+    cursor_color = "#aaaaaa"
+    foreground_color = "#3465a4"
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
