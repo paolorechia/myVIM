@@ -25,6 +25,9 @@ let g:ctrlp_working_path_mode = 0
 " Git integration
 Plugin 'tpope/vim-fugitive'
 
+" Tmux integration
+Plugin 'tmux-plugins/vim-tmux-focus-events'
+
 " Easy commenting
 " Needs tweaking
 Plugin 'tpope/vim-commentary'
@@ -105,6 +108,11 @@ nnoremap <leader>t :NERDTreeToggle <esc>
 autocmd BufNewFile * :write
 autocmd BufWritePre *.java :normal gg=G 
 
+
+" Clipboard shortcuts
+noremap <Leader>y "+y
+noremap <Leader>p "+p
+
 """"""""""" Easy motion config
 "<Leader>f{char} to move to {char}
 map  <Leader>f <Plug>(easymotion-bd-f)
@@ -151,3 +159,5 @@ command! -nargs=1 Silent
 colorscheme nord
 
 " Turn on line numbers
+set number
+
