@@ -136,6 +136,14 @@ autocmd FileType c nnoremap <buffer> <LocalLeader>c 0i//<esc>
 autocmd FileType c nnoremap <buffer> <LocalLeader>u 0xx<esc>
 autocmd FileType c nnoremap <buffer> <LocalLeader>i 0iif( ){}<esc>
 
+
+" Vim fugitive shortcuts
+nnoremap <Leader>d :Gvdiffsplit! <CR>
+nnoremap <Leader>a :Gadd
+nnoremap <Leader>dh :diffget //2<CR>
+nnoremap <Leader>dl :diffget //3<CR>
+
+
 " Buffer navigation
 nnoremap <C-h> :bp<cr>
 nnoremap <C-l> :bn<cr>
@@ -160,4 +168,5 @@ colorscheme nord
 
 " Turn on line numbers
 set number
+
 
