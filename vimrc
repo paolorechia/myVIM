@@ -83,6 +83,7 @@ let b:ale_fixers = {
 
 let g:ale_sign_error = '●' " Less aggressive than the default '>>'
 let g:ale_sign_warning = '.'
+let g:ale_echo_cursor = 0  " Fix cursor bug for Ubuntu 18.04
 
 " Custom General Setup
 set expandtab
@@ -169,4 +170,6 @@ colorscheme nord
 " Turn on line numbers
 set number
 
+" Integrate ALE linter with airline
+let g:airline#extensions#ale#enabled = 1
 
