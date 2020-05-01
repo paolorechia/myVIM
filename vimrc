@@ -141,6 +141,7 @@ autocmd FileType c nnoremap <buffer> <LocalLeader>i 0iif( ){}<esc>
 " Vim fugitive shortcuts
 nnoremap <Leader>d :Gvdiffsplit! <CR>
 nnoremap <Leader>a :Gadd
+nnoremap <Leader>c :Gcommit
 nnoremap <Leader>dh :diffget //2<CR>
 nnoremap <Leader>dl :diffget //3<CR>
 
@@ -173,3 +174,6 @@ set number
 " Integrate ALE linter with airline
 let g:airline#extensions#ale#enabled = 1
 
+" Ale error jumping
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
