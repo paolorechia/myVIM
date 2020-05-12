@@ -129,6 +129,7 @@ alias trls='trello show-cards -b Todo'
 alias trlstodo='trello show-cards -b Todo -l Todo'
 alias trlsdone='trello show-cards -b Todo -l done'
 alias trlsdoing='trello show-cards -b Todo -l doing'
+alias trlspast='trello show-cards -b Todo -l donePast'
 
 function tradd {
   trello add-card -b Todo -l Todo "$1"
@@ -150,3 +151,20 @@ function trdel {
   trello delete-card "$1" -b Todo -l $2
 }
 
+function trmovetopast {
+  trello move-all-cards -b todo -c todo -l done -d donePast
+}
+
+function weather {
+  curl wttr.in
+}
+
+alias gitrs='git restore --staged '
+
+function loopeslint {
+  while true; do clear && echo "ESLINT:" && npx eslint $1; sleep 10; done
+}
+
+function watchpylint {
+  while true; do inotifywait -e close_write $1; clear && pylint $1; done
+}
