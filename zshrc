@@ -166,5 +166,23 @@ function loopeslint {
 }
 
 function watchpylint {
-  while true; do inotifywait -e close_write $1; clear && pylint $1; done
+  while true; 
+    do inotifywait -e close_write $1; 
+    clear && echo "PYLINT:" && pylint $1 && echo "";
+  done
+}
+
+function watchflake8 {
+  while true; 
+    do inotifywait -e close_write $1; 
+    clear && echo "Flake8:" && flake8 $1 && echo "";
+  done
+}
+
+function watchpylinters {
+  while true; 
+    do inotifywait -e close_write $1; 
+    clear && echo "PYLINT:" && pylint $1 && echo "";
+    echo "Flake8:" && flake8 $1 && echo "";
+  done
 }
