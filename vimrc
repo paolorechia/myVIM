@@ -81,6 +81,9 @@ let b:ale_fixers = {
 \  'javascript': ['prettier', 'eslint']
 \}
 
+" Rust plugins
+Plugin 'rust-lang/rust.vim'
+
 let g:ale_sign_error = '●' " Less aggressive than the default '>>'
 let g:ale_sign_warning = '.'
 let g:ale_echo_cursor = 0  " Fix cursor bug for Ubuntu 18.04

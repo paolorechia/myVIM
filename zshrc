@@ -161,27 +161,35 @@ function weather {
 
 alias gitrs='git restore --staged '
 
-function loopeslint {
-  while true; do clear && echo "ESLINT:" && npx eslint $1; sleep 10; done
+function watcheslint {
+  while true; do inotifywait -r -e close_write $1;
+    clear && echo "ESLINT:" && npx eslint $1;
+  done
+}
+
+function watchmocha {
+  while true; do inotifywait -r -e close_write $1;
+    clear && echo "MOCHA:" && npm run test;
+  done
 }
 
 function watchpylint {
   while true; 
-    do inotifywait -e close_write $1; 
+    do inotifywait -e -r close_write $1; 
     clear && echo "PYLINT:" && pylint $1 && echo "";
   done
 }
 
 function watchflake8 {
   while true; 
-    do inotifywait -e close_write $1; 
+    do inotifywait -e -r close_write $1; 
     clear && echo "Flake8:" && flake8 $1 && echo "";
   done
 }
 
 function watchpylinters {
   while true; 
-    do inotifywait -e close_write $1; 
+    do inotifywait -e -r close_write $1; 
     clear && echo "PYLINT:" && pylint $1 && echo "";
     echo "Flake8:" && flake8 $1 && echo "";
   done
