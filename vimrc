@@ -111,7 +111,7 @@ autocmd FileType c nnoremap <buffer> <LocalLeader>u 0xx<esc>
 autocmd FileType c nnoremap <buffer> <LocalLeader>i 0iif( ){}<esc>
 
 " Typescript filetype
-" au BufNewFile,BufRead *.ts  setfiletype typescript
+au BufNewFile,BufRead *.ts  set filetype=typescript
 au BufNewFile,BufRead *.ts  set syntax=typescript
 
 
