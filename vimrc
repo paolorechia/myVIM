@@ -34,7 +34,6 @@ Plugin 'Raimondi/delimitMate'
 " Git integration
 Plugin 'tpope/vim-fugitive'
 
-
 " Easy commenting
 " Needs tweaking
 Plugin 'tpope/vim-commentary'
@@ -45,7 +44,7 @@ Plugin 'easymotion/vim-easymotion'
 " Airline!
 Plugin 'vim-airline/vim-airline'
 
-" Syntax highlighting
+" JavaScript syntax highlighting
 Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'maxmellon/vim-jsx-pretty'
@@ -111,6 +110,10 @@ autocmd FileType c nnoremap <buffer> <LocalLeader>c 0i//<esc>
 autocmd FileType c nnoremap <buffer> <LocalLeader>u 0xx<esc>
 autocmd FileType c nnoremap <buffer> <LocalLeader>i 0iif( ){}<esc>
 
+" Typescript filetype
+" au BufNewFile,BufRead *.ts  setfiletype typescript
+au BufNewFile,BufRead *.ts  set syntax=typescript
+
 
 " Vim fugitive shortcuts
 nnoremap <Leader>d :Gvdiffsplit! <CR>
@@ -147,7 +150,9 @@ set number
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Coc settings
+"                                                      "
+"                      Coc settings                    "
+"                                                      "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
