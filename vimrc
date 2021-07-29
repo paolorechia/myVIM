@@ -1,11 +1,3 @@
-
-
-call plug#begin('~/.vim/plugged')
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-call plug#end()
-
 " Vundle setup
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -14,6 +6,15 @@ filetype plugin on
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+
+Plugin 'vim-plug'
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+call plug#end()
+
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
