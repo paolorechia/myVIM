@@ -1,3 +1,5 @@
 :PluginInstall
-:q
-:q
+:PlugInstall
+:CocInstall coc-pyright
+:CocInstall coc-json coc-tsserver
+:CocInstall coc-yaml

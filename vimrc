@@ -1,3 +1,6 @@
+" Fix visual select
+:highlight Visual cterm=reverse ctermbg=NONE
+
 " Vundle setup
 set nocompatible              " be iMproved, required
 filetype off                  " required
