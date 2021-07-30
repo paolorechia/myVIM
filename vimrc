@@ -1,6 +1,3 @@
-" Fix visual select
-:highlight Visual cterm=reverse ctermbg=NONE
-
 " Vundle setup
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -310,3 +307,7 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+" Fix visual select
+:highlight Visual cterm=reverse ctermbg=NONE
+
