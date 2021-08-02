@@ -1,5 +1,3 @@
 :PluginInstall
 :PlugInstall
-:CocInstall coc-pyright
-:CocInstall coc-json coc-tsserver
-:CocInstall coc-yaml
+:CocInstall coc-pyright coc-json coc-tsserver coc-yaml coc-sh coc-react-refactor coc-vetur coc-cfn-lint
