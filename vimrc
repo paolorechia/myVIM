@@ -11,7 +11,20 @@ Plugin 'vim-plug'
 
 call plug#begin('~/.vim/plugged')
 
+" CoC, of course :)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Nice startup window
+Plug 'mhinz/vim-startify'
+
+" Fuzzy finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
+" (Surround with braces)
+Plug 'tpope/vim-surround'
+
+" Multi line editing
+Plug "terryma/vim-multiple-cursors"
 
 call plug#end()
 
@@ -22,9 +35,9 @@ Plugin 'VundleVim/Vundle.vim'
 " File navigation and exploration
 Plugin 'scrooloose/nerdtree'
 Plugin 'fholgado/minibufexpl.vim'
-Plugin 'kien/ctrlp.vim'
 
 Plugin 'arcticicestudio/nord-vim'
+
 
 " Auto quote matching 
 Plugin 'Raimondi/delimitMate'
@@ -38,6 +51,7 @@ Plugin 'tpope/vim-commentary'
 
 " Airline!
 Plugin 'vim-airline/vim-airline'
+
 
 " JavaScript syntax highlighting
 Plugin 'pangloss/vim-javascript'
