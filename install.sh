@@ -9,6 +9,9 @@ sudo apt-get install -y libncurses5-dev libgnome2-dev libgnomeui-dev \
     libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
     python3-dev ruby-dev lua5.1 lua5.1-dev libperl-dev git
 
+# Fuzzy finder depends on this ripgrep
+sudo snap install ripgrep --classic
+
 git clone https://github.com/vim/vim.git
 cd vim
 VIM_SOURCE_FOLDER=$(pwd)

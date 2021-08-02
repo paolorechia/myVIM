@@ -99,6 +99,13 @@ nnoremap <Leader>dl :diffget //3<CR>
 nnoremap <C-h> :bp<cr>
 nnoremap <C-l> :bn<cr>
 
+""" Fuzzy Finder Key Bindings 
+"Search for files by name
+nnoremap <C-p> :Files<cr>
+"Search for pattern in files (depends on ripgrep)
+nnoremap <C-f> :Rg<cr>
+
+
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
 " Custom silent
@@ -110,6 +117,9 @@ colorscheme nord
 
 " Turn on line numbers
 set number
+
+
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
