@@ -232,7 +232,6 @@ nmap <silent> <leader>A <Plug>(coc-diagnostic-next-error)
 nmap <silent> <leader>d <Plug>(coc-definition)
 nmap <silent> <leader>g :call CocAction('doHover')<CR>
 nmap <silent> <leader>G <Plug>(coc-diagnostic-info)
-nmap <silent> <leader>t <Plug>(coc-type-definition)
 nmap <silent> <leader>u <Plug>(coc-references)
 nmap <silent> <leader>i <Plug>(coc-implementation)
 nmap <silent> <leader>p :call CocActionAsync('format')<CR>
