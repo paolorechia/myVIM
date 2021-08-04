@@ -35,7 +35,6 @@ Plugin 'VundleVim/Vundle.vim'
 
 " File navigation and exploration
 Plugin 'scrooloose/nerdtree'
-Plugin 'fholgado/minibufexpl.vim'
 
 Plugin 'arcticicestudio/nord-vim'
 
