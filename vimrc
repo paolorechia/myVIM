@@ -1,12 +1,4 @@
 
-
-call plug#begin('~/.vim/plugged')
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-call plug#end()
-
-" Vundle setup
 set nocompatible              " be iMproved, required
 filetype off                  " required
 filetype plugin on
@@ -15,18 +7,37 @@ filetype plugin on
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'vim-plug'
+
+call plug#begin('~/.vim/plugged')
+
+" CoC, of course :)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Nice startup window
+Plug 'mhinz/vim-startify'
+
+" Fuzzy finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" (Surround with braces)
+Plug 'tpope/vim-surround'
+
+" Multi line editing
+Plug 'terryma/vim-multiple-cursors'
+
+call plug#end()
+
+
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
 " File navigation and exploration
 Plugin 'scrooloose/nerdtree'
-Plugin 'fholgado/minibufexpl.vim'
-Plugin 'kien/ctrlp.vim'
 
 Plugin 'arcticicestudio/nord-vim'
 
-" Tmux integration
-Plugin 'tmux-plugins/vim-tmux-focus-events'
 
 " Auto quote matching 
 Plugin 'Raimondi/delimitMate'
@@ -38,22 +49,9 @@ Plugin 'tpope/vim-fugitive'
 " Needs tweaking
 Plugin 'tpope/vim-commentary'
 
-" Easy motion
-Plugin 'easymotion/vim-easymotion'
-
 " Airline!
 Plugin 'vim-airline/vim-airline'
 
-" JavaScript syntax highlighting
-Plugin 'pangloss/vim-javascript'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'maxmellon/vim-jsx-pretty'
-
-" Rust plugins
-Plugin 'rust-lang/rust.vim'
-
-" Haskell
-Plugin 'neovimhaskell/haskell-vim'
 
 call vundle#end()
 
@@ -67,6 +65,7 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 syntax enable
+
 
 inoremap jk <esc>
 
@@ -87,34 +86,6 @@ autocmd BufWritePre *.java :normal gg=G
 noremap <Leader>y "+y
 noremap <Leader>p "+p
 
-""""""""""" Easy motion config
-"<Leader>f{char} to move to {char}
-map  <Leader>f <Plug>(easymotion-bd-f)
-nmap <Leader>f <Plug>(easymotion-overwin-f)
-
-"s{char}{char} to move to {char}{char}
-nmap s <Plug>(easymotion-overwin-f2)
-
-"Move to line
-map <Leader>L <Plug>(easymotion-bd-jk)
-nmap <Leader>L <Plug>(easymotion-overwin-line)
-
-"Move to word
-map  <Leader>w <Plug>(easymotion-bd-w)
-nmap <Leader>w <Plug>(easymotion-overwin-w)
-"""""""""""
-
-"autocmd BufRead *.java nnoremap <buffer> <LocalLeader>c 0i//<esc>
-autocmd FileType java nnoremap <buffer> <LocalLeader>c 0i//<esc>
-autocmd FileType c nnoremap <buffer> <LocalLeader>c 0i//<esc>
-autocmd FileType c nnoremap <buffer> <LocalLeader>u 0xx<esc>
-autocmd FileType c nnoremap <buffer> <LocalLeader>i 0iif( ){}<esc>
-
-" Typescript filetype
-au BufNewFile,BufRead *.ts  set filetype=typescript
-au BufNewFile,BufRead *.ts  set syntax=typescript
-
-
 " Vim fugitive shortcuts
 nnoremap <Leader>d :Gvdiffsplit! <CR>
 nnoremap <Leader>a :Gadd
@@ -127,14 +98,12 @@ nnoremap <Leader>dl :diffget //3<CR>
 nnoremap <C-h> :bp<cr>
 nnoremap <C-l> :bn<cr>
 
+""" Fuzzy Finder Key Bindings 
+"Search for files by name
+nnoremap <C-p> :Files<cr>
+"Search for pattern in files (depends on ripgrep)
+nnoremap <C-f> :Rg<cr>
 
-" Python specific config "
-au BufNewFile,BufRead *.py set tabstop=4
-au BufNewFile,BufRead *.py set shiftwidth=4
-au BufNewFile,BufRead *.py set textwidth=79
-au BufNewFile,BufRead *.py set expandtab
-au BufNewFile,BufRead *.py set autoindent
-au BufNewFile,BufRead *.py set fileformat=unix
 
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
@@ -147,6 +116,9 @@ colorscheme nord
 
 " Turn on line numbers
 set number
+
+
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -203,18 +175,13 @@ else
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
-" Navigate between diagnostics
-nmap <silent> <C-k> <Plug>(coc-diagnostic-prev)
-nmap <silent> <C-j> <Plug>(coc-diagnostic-next)
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+augroup mygroup
+  autocmd!
+" Setup formatexpr specified filetype(s).
+autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -224,7 +191,6 @@ function! s:show_documentation()
   endif
 endfunction
 
-
 " Highlight the symbol and its references when holding the cursor.
 
 " This currently bugs the cursor
@@ -232,48 +198,6 @@ endfunction
 
 " Find equivalent for coc to fix it
 " let g:ale_echo_cursor = 0  " Fix cursor bug for Ubuntu 18.04
-
-
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-" Formatting selected code.
-xmap <leader>r  <Plug>(coc-format-selected)
-nmap <leader>r  <Plug>(coc-format-selected)
-
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
-" Applying codeAction to the selected region.
-" Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-" Remap keys for applying codeAction to the current line.
-nmap <leader>ac  <Plug>(coc-codeaction)
-" Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
-
-" Map function and class text objects
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-xmap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap af <Plug>(coc-funcobj-a)
-xmap ic <Plug>(coc-classobj-i)
-omap ic <Plug>(coc-classobj-i)
-xmap ac <Plug>(coc-classobj-a)
-omap ac <Plug>(coc-classobj-a)
-
-" Use CTRL-S for selections ranges.
-" Requires 'textDocument/selectionRange' support of LS, ex: coc-tsserver
-nmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
@@ -288,6 +212,44 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                                      "
+"                      Coc Key Bindings                "
+"                                                      "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" COC Key Bindings
+nmap          <F5>      :CocRebuild<CR>
+nmap          <leader>f :CocSearch <c-r><c-w><CR>
+nmap <silent> <leader>r <Plug>(coc-rename)
+nmap <silent> <leader>s <Plug>(coc-codeaction-line)
+xmap <silent> <leader>s <Plug>(coc-codeaction-selected)
+nmap <silent> <leader>S <Plug>(coc-fix-current)
+nmap <silent> <leader>a <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>A <Plug>(coc-diagnostic-next-error)
+nmap <silent> <leader>d <Plug>(coc-definition)
+nmap <silent> <leader>g :call CocAction('doHover')<CR>
+nmap <silent> <leader>G <Plug>(coc-diagnostic-info)
+nmap <silent> <leader>u <Plug>(coc-references)
+nmap <silent> <leader>i <Plug>(coc-implementation)
+nmap <silent> <leader>p :call CocActionAsync('format')<CR>
+xmap <silent> <leader>p <Plug>(coc-format-selected)
+nnoremap <silent> <leader>O :call CocAction('runCommand', 'editor.action.organizeImport')<CR>
+nnoremap <silent> <nowait> <leader>l :<C-u>CocList diagnostics<CR>
+nnoremap <silent> <nowait> <leader>L :<C-u>CocList -I symbols<cr>
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+
+" Apply AutoFix to problem on the current line.
+nmap <leader>x  <Plug>(coc-fix-current)
+
+" Use CTRL-S for selections ranges.
+" Requires 'textDocument/selectionRange' support of LS, ex: coc-tsserver
+nmap <silent> <C-s> <Plug>(coc-range-select)
+xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Mappings using CoCList:
 " Show all diagnostics.
@@ -306,3 +268,17 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+" Map function and class text objects
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
+
+" Fix visual select
+highlight Visual cterm=reverse ctermbg=NONE
